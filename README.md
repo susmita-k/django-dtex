@@ -1,3 +1,5 @@
+<img width="565" alt="Screenshot 2025-05-27 at 10 49 51 PM" src="https://github.com/user-attachments/assets/4c7b85b2-36cc-458d-9d5c-5b4c384ae80a" />
+<img width="1435" alt="Screenshot 2025-05-27 at 10 49 30 PM" src="https://github.com/user-attachments/assets/706821ca-4985-415a-93b8-848892e25f00" />
 <img width="413" alt="Screenshot 2025-05-27 at 10 49 40 PM" src="https://github.com/user-attachments/assets/8b210519-3aeb-40f6-9e21-602820a698bc" />
 <img width="1420" alt="Screenshot 2025-05-27 at 10 49 19 PM" src="https://github.com/user-attachments/assets/1c62d2ee-cbe0-4bcf-9d65-87e2b976d3cf" />
 # django-dtex
