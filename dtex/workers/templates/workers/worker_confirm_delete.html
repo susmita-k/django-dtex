@@ -1,0 +1,13 @@
+<head>
+    <title>Confirm Delete Activity</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        label { display: block; margin-top: 10px; }
+    </style>
+</head>
+<h2>Are you sure you want to delete {{ worker.name }}?</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete</button>
+  <a href="{% url 'worker_list' %}">Cancel</a>
+</form>

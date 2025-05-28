@@ -1,0 +1,62 @@
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-bottom: 1px solid black;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid grey;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .empty {
+      color: #999;
+      font-style: italic;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<h2>Activities for {{ worker.name }}</h2>
+<a href="{% url 'activity_create' worker.id %}">+ Add New Activity</a>
+<hr />
+<p></p>
+<p></p>
+
+<table border="1">
+  <tr>
+    <th>Date</th><th>Type</th><th>Risk</th><th>Actions</th>
+  </tr>
+  {% for activity in activities %}
+  <tr>
+    <td>{{ activity.datetime }}</td>
+    <td>{{ activity.activity_type }}</td>
+    <td>{{ activity.risk_level }}</td>
+    <td>
+      <a href="{% url 'activity_update' worker.id activity.id %}">Edit</a> |
+      <a href="{% url 'activity_delete' worker.id activity.id %}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<hr />
+<a href="{% url 'worker_list' %}">Back to Worker List</a>

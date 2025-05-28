@@ -1,0 +1,21 @@
+<head>
+  <title>{% if worker %}Edit{% else %}Create{% endif %} Worker</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"], select { width: 200px; }
+    input[type="submit"] { margin-top: 10px; }
+  </style>
+</head>
+<h2>{% if worker %}Edit{% else %}Create{% endif %} Worker</h2>
+<form method="post">
+  {% csrf_token %}
+  <label>Name:</label><input type="text" name="name" value="{{ worker.name|default_if_none:'' }}"><br>
+  <label>Type:</label>
+  <select name="type">
+    <option value="Employee" {% if worker.type == "Employee" %}selected{% endif %}>Employee</option>
+    <option value="Contractor" {% if worker.type == "Contractor" %}selected{% endif %}>Contractor</option>
+  </select><br>
+  <input type="submit" value="Save">
+</form>
+<a href="{% url 'worker_list' %}">Back to Worker List</a>

@@ -1,0 +1,58 @@
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-bottom: 1px solid black;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid grey;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .empty {
+      color: #999;
+      font-style: italic;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<h2>{% if activity %}Edit{% else %}Add{% endif %} Activity</h2>
+<form method="post">
+  {% csrf_token %}
+  Date and Time: <input type="datetime-local" name="datetime" value="{{ activity.datetime|default:'' }}"><br>
+  Activity Type:
+  <select name="activity_type">
+    <option>File access</option>
+    <option>Network connection</option>
+    <option>Application launch</option>
+  </select><br>
+  Risk Level:
+  <select name="risk_level">
+    <option>low</option>
+    <option>medium</option>
+    <option>high</option>
+  </select><br>
+  <input type="submit" value="Save">
+</form>
+
+<a href="{% url 'activity_list' worker_id %}">Back to Activity List</a>

@@ -1,0 +1,101 @@
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-bottom: 1px solid black;
+    }
+    th, td {
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid grey;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .empty {
+      color: #999;
+      font-style: italic;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<h2>Worker List</h2>
+<a href="{% url 'worker_create' %}"> + Create New Worker</a>
+<hr />
+<p></p>
+<p></p>
+<p></p>
+
+
+<form method="get">
+  <label>Name:</label>
+  <input type="text" name="name" value="{{ filters.name }}">
+
+  <label>Activity Type:</label>
+  <input type="text" name="activity_type" value="{{ filters.activity_type }}">
+
+  <label>Risk Level:</label>
+  <select name="risk_level">
+    <option value="">--All--</option>
+    <option value="low" {% if filters.risk_level == 'low' %}selected{% endif %}>Low</option>
+    <option value="medium" {% if filters.risk_level == 'medium' %}selected{% endif %}>Medium</option>
+    <option value="high" {% if filters.risk_level == 'high' %}selected{% endif %}>High</option>
+  </select>
+
+  <label>Start Date:</label>
+  <input type="date" name="start_date" value="{{ filters.start_date }}">
+
+  <label>End Date:</label>
+  <input type="date" name="end_date" value="{{ filters.end_date }}">
+
+  <button type="submit">Filter</button>
+</form>
+<table border="1">
+  <tr>
+    <th style="width: 30px;">🔔</th> 
+    <th>Name</th>
+    <th>Type</th>
+    <th>Activities</th>
+    <th>Actions</th>
+  </tr>
+  {% for worker in workers %}
+  <tr>
+  <td style="text-align: center;">
+    {% if worker.has_high_risk %}
+      <span style="color: red;" title="High Risk Activity Detected">⚠️</span>
+    {% endif %}
+  </td>
+    <td>{{ worker.name }}</td>
+    <td>{{ worker.type }}</td>
+    <td>
+      {% for activity in worker.activities.all %}
+        * {{ activity.activity_type }} ({{ activity.risk_level }})<br>
+      {% empty %}
+        No activities
+      {% endfor %}
+    </td>
+    <td>
+      <a href="{% url 'worker_update' worker.id %}">User Edit</a> |
+      <a href="{% url 'activity_list' worker.id %}">User Activity List</a> |
+      <a href="{% url 'worker_delete' worker.id %}">User Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
