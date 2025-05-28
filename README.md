@@ -25,6 +25,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run migrations
+cd dtex
 python manage.py migrate
 
 # Start server
