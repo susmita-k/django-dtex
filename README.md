@@ -8,11 +8,15 @@ A Django application for monitoring employee and contractor activities with risk
 
 ## Features
 
-- Employee & Contractor models
-- Activity tracking with risk levels (low, medium, high)
-- Admin interface (1. To Manage Users and 2. To Manage Activities for a Specific User )
-- Filtering and search
-- Warning indicators for high-risk actions
+- Worker and WorkerActivity models (dtex/workers/models.py)
+- workers/views.py (CRUD operations for Workers and Activities of Selected User)
+- Admin interface Templates (1. To Manage Users and 2. To Manage Activities for a Specific User )
+- User List with Filtering and search by -
+•  Employee/Contractor name
+•  Date range
+•  Type of activity
+•  Risk level
+- Warning indicators for high-risk actions - not working
 
 ## Setup Instructions
 
