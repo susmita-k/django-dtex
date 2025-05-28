@@ -17,7 +17,10 @@ A Django application for monitoring employee and contractor activities with risk
 •  Type of activity
 •  Risk level
 - Warning indicators for high-risk actions - (this one has a small bug)
-
+## Known issues
+- Filter by dates not working
+- The notification column, flagging high risk users is now quite working
+  
 ## Setup Instructions
 
 ```bash
