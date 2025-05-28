@@ -1,3 +1,5 @@
+<img width="413" alt="Screenshot 2025-05-27 at 10 49 40 PM" src="https://github.com/user-attachments/assets/8b210519-3aeb-40f6-9e21-602820a698bc" />
+<img width="1420" alt="Screenshot 2025-05-27 at 10 49 19 PM" src="https://github.com/user-attachments/assets/1c62d2ee-cbe0-4bcf-9d65-87e2b976d3cf" />
 # django-dtex
 
 A Django application for monitoring employee and contractor activities with risk categorization.
