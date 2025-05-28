@@ -16,7 +16,7 @@ A Django application for monitoring employee and contractor activities with risk
 •  Date range
 •  Type of activity
 •  Risk level
-- Warning indicators for high-risk actions - not working
+- Warning indicators for high-risk actions - (this one has a small bug)
 
 ## Setup Instructions
 
